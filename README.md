@@ -3,7 +3,7 @@ Visualizer using Grafana & InfluxDB for Guider
 
 
 ## Container Run 
-##### Version
+#### Version
 ```
 Docker Image: 2.3.0
 Ubuntu: 18.04
@@ -11,7 +11,7 @@ InfluxDB: 1.7.10
 Grafana: 6.6.2
 ```
 
-##### Run
+#### Run
 * Start container
   * Method 1: Use DockerHub
   ```sh
@@ -47,20 +47,20 @@ docker stop guider-visualization
 docker start guider-visualization
 ```
 
-##### Port Forwarding
+#### Port Forwarding
 |Host|Container|Service|
 |:---:|:---:|:---:|
 |3003|3003|grafana|
 |8086|8086|influxdb|
 
-##### Grafana
+#### Grafana
 Open <http://localhost:3003>
 ```
 Username: root
 Password: root
 ```
 
-##### Add data source on Grafana
+#### Add data source on Grafana
 1. Using the wizard click on `Add data source`
 2. Choose a `name` for the source and flag it as `Default`
 3. Choose `InfluxDB` as `type`
@@ -74,18 +74,18 @@ Password: root
   ```
 
 ## Guider Run
-##### Requirements
+#### Requirements
 ```
 Python >= 3.0
 ```
 
-##### Install Python Dependencies
+#### Install Python Dependencies
 It is recommended to use virtualenv 
 ```sh
 $ pip3 install -r requirements.txt
 ```
 
-##### Run
+#### Run
 * First, Run the guider server on the PC to measure performance. Only ports between 50 and 999 are available.
     ```sh
     $ python3 guider.py server -x {PORT}
