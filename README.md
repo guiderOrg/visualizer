@@ -1,6 +1,7 @@
 # Guider Visualizer
 Visualizer using Grafana & InfluxDB for Guider
 
+<img width="2498" alt="result_sample" src="https://user-images.githubusercontent.com/38535571/83333366-245f8a00-a2db-11ea-8278-9660828e0902.png">
 
 ## Container Run 
 #### Version
