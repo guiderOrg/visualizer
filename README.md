@@ -1,4 +1,5 @@
-# Guider Grafana
+# Guider Visualizer
+Visualizer using Grafana & InfluxDB for Guider
 
 
 ## Container Run 
