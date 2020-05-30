@@ -81,10 +81,21 @@ Python >= 3.0
 ```
 
 #### Install Python Dependencies
-It is recommended to use virtualenv 
+It is recommended to use virtualenv.
+```shell script
+$ pip3 install virtualenv
+```
+```shell script
+$ virtualenv venv 
+```
+```shell script
+$ source ./venv/bin/activate
+```
+If you don't want to use virtualenv, just run this command.
 ```sh
 $ pip3 install -r requirements.txt
 ```
+
 
 #### Run
 * First, Run the guider server on the PC to measure performance. Only ports between 50 and 999 are available.
