@@ -74,7 +74,7 @@ Password: root
   Password: guider
   ```
 
-## Guider Run
+## Guider Visualizer Run
 #### Requirements
 ```
 Python >= 3.0
