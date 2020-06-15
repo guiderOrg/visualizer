@@ -1,5 +1,6 @@
 certifi==2020.4.5.1
 chardet==3.0.4
+guider==3.9.7b0
 idna==2.9
 influxdb==5.3.0
 msgpack==0.6.1
