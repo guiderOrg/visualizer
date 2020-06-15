@@ -4,7 +4,6 @@ import sys
 
 from common.guider import GuiderInstance, RequestManager
 from influxdb import InfluxDBClient
-from datetime import datetime
 
 
 def get_data_by_command(target_addr, request_id, cmd):
