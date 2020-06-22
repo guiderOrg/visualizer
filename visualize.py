@@ -22,11 +22,13 @@ def get_data_by_command(target_addr, request_id, cmd):
             if not str_pipe:
                 break
             result['data'] = str_pipe.replace('\n', '')
-            # TODO need to refactoring! result['data'][2:8] == "system" is bad code.
-            if result['data'] and result['data'][2:8] == "system":
+            try:
                 result['data'] = json.loads(result['data'])
                 pprint.pprint(result)
                 insert_db(result['data'])
+            except Exception as error:
+                print(error)
+                continue
         pipe.close()
         stop_command_run(request_id)
     except Exception as err:
@@ -74,15 +76,25 @@ def insert_db(guider_data):
         json_body['measurement'] = super_key
         json_body['fields'] = dict()
         if super_key == "cpu":
-            # TODO processing data field per cpu core
             json_body['fields']['idle'] = guider_data[super_key]['idle']
             json_body['fields']['iowait'] = guider_data[super_key]['iowait']
             json_body['fields']['irq'] = guider_data[super_key]['irq']
             json_body['fields']['kernel'] = guider_data[super_key]['kernel']
-        elif super_key == "mem" or super_key == "net":
-            json_body['fields'] = guider_data[super_key]
+        elif super_key == "mem":
+            json_body['fields']['anon'] = guider_data[super_key]['anon']
+            json_body['fields']['available'] = guider_data[super_key]['available']
+            json_body['fields']['cache'] = guider_data[super_key]['cache']
+            json_body['fields']['kernel'] = guider_data[super_key]['kernel']
+        elif super_key == "net":
+            json_body['fields']['inbound'] = guider_data[super_key]['inbound']
+            json_body['fields']['outbound'] = guider_data[super_key]['outbound']
+        elif super_key == "storage":
+            json_body['fields']['free'] = guider_data[super_key]['total']['free']
+            json_body['fields']['usage'] = guider_data[super_key]['total']['usage']
+        # TODO parsing each process and saving to influxdb
+        elif super_key == "process":
+            pass
         else:
-            # TODO another super key processing : system, block, process, task, storage
             continue
         if len(json_body["fields"]) > 0:
             influx_data.append(json_body)
@@ -96,6 +108,6 @@ if __name__ == '__main__':
         config = json.load(config_file)
     try:
         client = setup_db(config['influxDBClientConfig']['host'], config['influxDBClientConfig']['port'])
-        get_data_by_command(sys.argv[1], 1, 'GUIDER top -J')
+        get_data_by_command(sys.argv[1], 1, 'GUIDER reptop -Q')
     except Exception as e:
         print(e)
