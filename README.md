@@ -28,6 +28,9 @@ Grafana: 6.6.2
   ```
   * Method 2: Build in local environment
   ```sh
+  $ git clone https://github.com/guiderOrg/visualizer.git
+  ```
+  ```sh
   $ docker build -t guider-influxdb-grafana .
   ```
   ```sh  
