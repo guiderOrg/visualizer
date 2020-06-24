@@ -65,17 +65,20 @@ Password: root
 ```
 
 #### Add data source on Grafana
-1. Using the wizard click on `Add data source`
-2. Choose a `name` for the source and flag it as `Default`
-3. Choose `InfluxDB` as `type`
-4. Choose `direct` as `access`
-5. Fill remaining fields as follows and click on `Add` without altering other fields
+1. Using the wizard click on `Configuration` -> `Add data source`
+2. Select `InfluxDB`
+3. Fill remaining fields as follows and click on `Add` without altering other fields
   ```yml
   Url: http://localhost:8086
   Database: guider
   User: guider
   Password: guider
   ```
+4. Click Save & Test
+
+#### Import dashboard
+1. Using the wizard click on `Create` -> `Import`
+2. Upload [Dashbaord](dashboard/Guider_Dashbaord.json) and Click Import
 
 ## Guider Visualizer Run
 #### Requirements
