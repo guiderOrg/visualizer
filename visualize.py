@@ -21,7 +21,7 @@ def get_data_by_command(target_addr, request_id, cmd):
             str_pipe = pipe.getData()
             if not str_pipe:
                 break
-            result['data'] = str_pipe.replace('\n', '')
+            result['data'] = str_pipe
             try:
                 result['data'] = json.loads(result['data'])
                 pprint.pprint(result)
