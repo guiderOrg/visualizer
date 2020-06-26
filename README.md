@@ -78,7 +78,7 @@ Password: root
 
 #### Import dashboard
 1. Using the wizard click on `Create` -> `Import`
-2. Upload [Dashbaord](dashboard/Guider_Dashbaord.json) and Click Import
+2. Upload [Dashbaord](https://github.com/guiderOrg/visualizer/blob/master/dashboard/Guider_Dashboard.json) and Click Import
 
 ## Guider Visualizer Run
 #### Requirements
