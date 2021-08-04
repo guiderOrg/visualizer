@@ -9,7 +9,7 @@ from influxdb import InfluxDBClient
 def get_data_by_command(target_addr, request_id, cmd):
     result = dict(result=0, data=dict(), errMsg='')
     pipe = None
-    if cmd is None or cmd is '' or target_addr is None or target_addr is '':
+    if cmd == None or cmd == '' or target_addr == None or target_addr == '':
         result['result'] = -1
         result['errorMsg'] = 'Required data missing'
         sys.exit(0)
